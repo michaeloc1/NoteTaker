@@ -2,6 +2,8 @@ const express = require('express');
 const path = require ('path');
 const noteData = require('./db/db.json');
 const fs =require('fs');
+const uniqid = require('uniqid');
+
 
 const PORT = process.env.PORT || 3001;
 
@@ -24,11 +26,13 @@ app.get('/api/notes', (req, res) => res.json(noteData));
 app.post('/api/notes', (req, res) => {
   //const test = req.body;
   //console.log(test)
+  const id = uniqid();
   const {title, text} = req.body;
   if(title && text){
     const newNote = {
       title,
-      text
+      text,
+      id
     }
     fs.readFile('./db/db.json', 'utf8', (err, data) => {
       if (err) {
@@ -57,13 +61,20 @@ app.post('/api/notes', (req, res) => {
       status: 'success',
       body: newNote,
     };
-    console.log(response)
+    //console.log(response)
     res.status(201).json(response);
-    app.get('/api/notes', (req, res) => res.json(noteData));
-  } else {
-    res.status(500).json('Error in posting note');
+    const test = require('./db/db.json');
+    app.get('/api/notes', (req, res) => res.json(test));
+    } else {
+     res.status(500).json('Error in posting note');
   }
+  //app.get('/api/notes', (req, res) => res.json(noteData));
 });
+
+app.delete('/api/notes/:id', (req, res) => {
+  id = req.params.id
+  console.log(id)
+})
 
 app.listen(PORT, () => console.log(`app listening on port ${PORT}`));
 
