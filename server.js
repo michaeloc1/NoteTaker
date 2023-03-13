@@ -21,7 +21,14 @@ app.get('/notes', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
 
-app.get('/api/notes', (req, res) => res.json(noteData));
+//app.get('/api/notes', (req, res) => res.json(noteData));
+app.get('/api/notes', (req, res) => {
+  console.log(noteData)
+  res.json(noteData)
+ 
+ })
+
+
 
 app.post('/api/notes', (req, res) => {
   //const test = req.body;
@@ -64,7 +71,6 @@ app.post('/api/notes', (req, res) => {
     //console.log(response)
     res.status(201).json(response);
     const test = require('./db/db.json');
-    app.get('/api/notes', (req, res) => res.json(test));
     } else {
      res.status(500).json('Error in posting note');
   }

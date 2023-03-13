@@ -44,7 +44,7 @@ const saveNote = (note) =>
 
 const deleteNote = (id) =>
   fetch(`/api/notes/${id}`, {
-    //fetch(`/api/notes/`, {
+    
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
@@ -89,8 +89,7 @@ const handleNoteDelete = (e) => {
   if (activeNote.id === noteId) {
     activeNote = {};
   }
-
-  deleteNote(noteId).then(() => {
+   deleteNote(noteId).then(() => {
     getAndRenderNotes();
     renderActiveNote();
   });
@@ -119,6 +118,7 @@ const handleRenderSaveBtn = () => {
 
 // Render the list of note titles
 const renderNoteList = async (notes) => {
+  console.log("In render note function")
   let jsonNotes = await notes.json();
   if (window.location.pathname === '/notes') {
     noteList.forEach((el) => (el.innerHTML = ''));

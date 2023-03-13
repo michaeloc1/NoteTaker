@@ -1,78 +1,52 @@
 [
     {
-        "title": "Test Title",
-        "text": "Test text"
-    },
-    {
         "title": "This is a new note",
-        "text": "This is new note text"
+        "text": "This is new note text",
+        "id": "391jfrer0lf38vmfs"
     },
     {
         "title": "This is the third note",
-        "text": "This is the third note text"
+        "text": "This is the third note text",
+        "id": "391judfr0ljklvmfs"
     },
     {
         "title": "another note",
-        "text": "another note"
+        "text": "another note",
+        "id": "391judfr0lf38vmfs"
     },
     {
         "title": "note with id",
         "text": "note with id\n",
-        "noteID": "391ju6o0lf38vmfs"
+        "id": "391ju6o0lf38vmfs"
     },
     {
-        "title": "another note with id",
-        "text": "another note with id",
-        "id": "391ju96wlf394w4s"
+        "title": "getandrendernotes",
+        "text": "note text here",
+        "id": "391ju94klf72ku52"
     },
     {
-        "title": "render note after add",
-        "text": "render note after add text",
-        "id": "391jugmwlf39p7rq"
+        "title": "test test",
+        "text": "test test",
+        "id": "391jufawlf72q0tp"
     },
     {
-        "title": "new notee see",
-        "text": "i want to see ssomthing\n",
-        "id": "391jubgslf3aqflb"
+        "title": "just added note",
+        "text": "this is the note text\n",
+        "id": "391jubaklf76ck83"
     },
     {
-        "title": "see wha happen",
-        "text": "something wrong",
-        "id": "391ju1o8lf3aw3cm"
+        "title": "cant see notes",
+        "text": "cant see notes\n",
+        "id": "391juhv4lf76mp3g"
     },
     {
-        "title": "goo",
-        "text": "qiiidkke",
-        "id": "391juhyolf3axibo"
+        "title": "aldklsk",
+        "text": "sdlkjfsdklsd",
+        "id": "391ju7qslf76pve6"
     },
     {
-        "title": "nnnn",
-        "text": "nnnn",
-        "id": "391ju48olf3g9y1u"
-    },
-    {
-        "title": "ppoooiii",
-        "text": "iiiooopppp",
-        "id": "391juho8lf3gczrw"
-    },
-    {
-        "title": "abba dabba",
-        "text": "abba daabba",
-        "id": "391juho8lf3ghnme"
-    },
-    {
-        "title": "be bop",
-        "text": "be bop",
-        "id": "391jubtglf3gpa4l"
-    },
-    {
-        "title": "debug",
-        "text": "debug",
-        "id": "391ju7q4lf3gxbkv"
-    },
-    {
-        "title": "rendeactivenote",
-        "text": "this is some text",
-        "id": "391jubr0lf6x4ij5"
+        "title": "back to start",
+        "text": "back to start",
+        "id": "391ju8a0lf77ay6c"
     }
 ]
