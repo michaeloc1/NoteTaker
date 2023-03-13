@@ -74,6 +74,30 @@ app.post('/api/notes', (req, res) => {
 app.delete('/api/notes/:id', (req, res) => {
   id = req.params.id
   console.log(id)
+  fs.readFile('./db/db.json', 'utf8', (err, data) => {
+    if (err) {
+      console.error(err);
+    } else {
+      // Convert string into JSON object
+      const parsedNotes = JSON.parse(data);
+      const newArray = [];
+      for (const element of parsedNotes) {
+       if(element.id != req.params.id){
+        newArray.push(element)
+       }
+      }
+
+      // Write updated notes back to the file
+      fs.writeFile(
+        './db/db.json',
+        JSON.stringify(newArray, null, 4),
+        (writeErr) =>
+          writeErr
+            ? console.error(writeErr)
+            : console.info('Successfully deleted note!')
+      );
+    }
+  });
 })
 
 app.listen(PORT, () => console.log(`app listening on port ${PORT}`));
