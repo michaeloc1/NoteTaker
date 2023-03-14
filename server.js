@@ -23,10 +23,20 @@ app.get('/notes', (req, res) =>
 
 //app.get('/api/notes', (req, res) => res.json(noteData));
 app.get('/api/notes', (req, res) => {
-  console.log(noteData)
-  res.json(noteData)
- 
- })
+ // res.json(noteData);
+ fs.readFile('./db/db.json', 'utf8', (err, data) => {
+  if (err) {
+    console.error(err);
+  } else {
+    
+    // Convert string into JSON object
+    const parsedNotes = JSON.parse(data);
+    console.log(parsedNotes)
+    res.json(parsedNotes);
+  }
+});
+
+})
 
 
 
@@ -47,7 +57,7 @@ app.post('/api/notes', (req, res) => {
       } else {
         // Convert string into JSON object
         const parsedNotes = JSON.parse(data);
-        console.log (parsedNotes)
+       // console.log (parsedNotes)
 
         // Add a new note
         parsedNotes.push(newNote);
@@ -79,7 +89,7 @@ app.post('/api/notes', (req, res) => {
 
 app.delete('/api/notes/:id', (req, res) => {
   id = req.params.id
-  console.log(id)
+  //console.log(id)
   fs.readFile('./db/db.json', 'utf8', (err, data) => {
     if (err) {
       console.error(err);
@@ -102,6 +112,8 @@ app.delete('/api/notes/:id', (req, res) => {
             ? console.error(writeErr)
             : console.info('Successfully deleted note!')
       );
+
+ 
     }
   });
 })
