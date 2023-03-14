@@ -22,22 +22,22 @@ app.get('/notes', (req, res) =>
 );
 
 //app.get('/api/notes', (req, res) => res.json(noteData));
+//app.get('/api/notes', (req, res) => res.json(noteData));
 app.get('/api/notes', (req, res) => {
- // res.json(noteData);
- fs.readFile('./db/db.json', 'utf8', (err, data) => {
-  if (err) {
-    console.error(err);
-  } else {
-    
-    // Convert string into JSON object
-    const parsedNotes = JSON.parse(data);
-    console.log(parsedNotes)
-    res.json(parsedNotes);
-  }
-});
-
-})
-
+  // res.json(noteData);
+  fs.readFile('./db/db.json', 'utf8', (err, data) => {
+   if (err) {
+     console.error(err);
+   } else {
+     
+     // Convert string into JSON object
+     const parsedNotes = JSON.parse(data);
+     console.log(parsedNotes)
+     res.json(parsedNotes);
+   }
+ });
+ 
+ })
 
 
 app.post('/api/notes', (req, res) => {
@@ -115,8 +115,12 @@ app.delete('/api/notes/:id', (req, res) => {
 
  
     }
-  });
-})
+  })
+  const response = {
+    status: 'success',
+    };
+  //console.log(response)
+  res.status(201).json(response);
+});
 
 app.listen(PORT, () => console.log(`app listening on port ${PORT}`));
-
